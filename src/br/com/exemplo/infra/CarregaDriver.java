@@ -14,6 +14,10 @@ public class CarregaDriver {
 			Connection conn = DriverManager.getConnection("jdbc:h2:mem:dbaluno", "", "");
 			System.out.println("\nConexao Efeturada: " + conn);
 			
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate("CREATE TABLE alunos (id INTEGER not null, nome VARCHAR(255))");
+			System.out.println("\nTabela Criada!");
+			
 		} catch (ClassNotFoundException e) {
 			System.out.println("Não consegui carregar o driver!" + e.getMessage());
 		} catch (SQLException ex) {
